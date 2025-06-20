@@ -36,10 +36,6 @@ export const analyzeCode = async (req, res) => {
     }
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cfea46c463020d901f1eec2eb0dc072befe8ef40
 
 export const saveAnalysis = async (req, res) => {
     try {
