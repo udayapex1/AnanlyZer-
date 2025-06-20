@@ -1,0 +1,43 @@
+let disposable = vscode.commands.registerCommand('analyZer.analyzeCode', async () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        vscode.window.showErrorMessage('No active editor found!');
+        return;
+    }
+
+    const code = editor.document.getText();
+    
+    try {
+        // Show loading indicator
+        await vscode.window.withProgress({
+            location: vscode.ProgressLocation.Notification,
+            title: "analyZer: Analyzing code complexity...",
+            cancellable: false
+        }, async () => {
+            const response = await axios.post('http://localhost:3000/api/analysis/analyze', { code });
+            
+            // 1. Show quick popup
+            vscode.window.showInformationMessage(
+                `analyZer: Time ${response.data.analysis.timeComplexity} | Space ${response.data.analysis.spaceComplexity}`
+            );
+
+            // 2. Show detailed results in output channel
+            outputChannel.clear();
+            outputChannel.appendLine('═════════ analyZer Results ═════════');
+            outputChannel.appendLine(`⏱ Time Complexity: ${response.data.analysis.timeComplexity}`);
+            outputChannel.appendLine(`💾 Space Complexity: ${response.data.analysis.spaceComplexity}`);
+            outputChannel.appendLine('\n🚀 Optimization Suggestions:');
+            response.data.analysis.suggestions.forEach((suggestion, i) => {
+                outputChannel.appendLine(`${i + 1}. ${suggestion}`);
+            });
+            outputChannel.appendLine(`\n💡 ${response.data.analysis.motivationalQuote}`);
+            outputChannel.appendLine('═════════════════════════════════════');
+            outputChannel.show();
+        });
+        
+    } catch (error) {
+        vscode.window.showErrorMessage(`Analysis failed: ${error.message}`);
+        outputChannel.appendLine(`[ERROR] ${error.message}`);
+        outputChannel.show();
+    }
+});
