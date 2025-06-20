@@ -36,68 +36,7 @@ export const analyzeCode = async (req, res) => {
     }
 };
 
-// export const saveAnalysis = async (req, res) => {
-//     try {
-//         let code = null;
 
-//         // Try all possible key variations for code
-//         if (req.body.code) {
-//             code = req.body.code;
-//         } else if (req.body['code ']) {
-//             code = req.body['code '];
-//         } else {
-//             // Search through all keys for possible matches
-//             for (const key in req.body) {
-//                 if (key.trim() === 'code' || key.startsWith('code')) {
-//                     code = req.body[key];
-//                     console.log(`Found code in key: "${key}"`);
-//                     break;
-//                 }
-//             }
-//         }
-
-//         const { language, analysis } = req.body;
-
-//         console.log('Code:', code);
-//         console.log('Language:', language);
-//         console.log('Analysis:', analysis);
-
-//         // Validate required fields
-//         if (!code || !language || !analysis) {
-//             return res.status(400).json({
-//                 error: "Missing required fields",
-//                 details: {
-//                     code: !code ? "missing" : "present",
-//                     language: !language ? "missing" : "present",
-//                     analysis: !analysis ? "missing" : "present"
-//                 }
-//             });
-//         }
-
-//         const newAnalysis = await Analysis.create({
-//             userId: req.user.id,
-//             code,
-//             language,
-//             analysis
-//         });
-
-//         console.log('New analysis created:', newAnalysis);
-//         return res.status(201).json({
-//             message: "Saved successfully",
-//             data: newAnalysis
-//         });
-
-//     } catch (error) {
-//         console.error('Error saving analysis:', error);
-
-//         // More detailed error response
-//         return res.status(500).json({
-//             error: "Failed to save analysis",
-//             details: error.message,
-//             ...(error.errors && { validationErrors: error.errors })
-//         });
-//     }
-// }
 
 export const saveAnalysis = async (req, res) => {
     try {
@@ -144,7 +83,6 @@ export const saveAnalysis = async (req, res) => {
             });
         }
 
-        // Create the analysis with all required fields
         const newAnalysis = await Analysis.create({
             userId: req.user.id,
             code,

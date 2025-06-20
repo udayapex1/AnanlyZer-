@@ -1,8 +1,8 @@
 {
   "name": "analyzer",
-  "displayName": "AnalyZer Extension",
+  "displayName": "AnalyZer ",
   "description": "Analyze the time and space complexity of your code in real-time directly from VS Code. This extension uses AI to deliver quick insights, optimization suggestions, and frequently asked company tags — all designed to help you write cleaner, faster, and more efficient code.",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "publisher": "UdayPareta",
   "icon": "assets/icon.png",
   "engines": {
