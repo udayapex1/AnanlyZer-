@@ -100,7 +100,7 @@ npm install
 
 3. **Create `.env` file in the `server/` folder**
 ```
-OPENA_ROUTER_API_KEY=your_key_here
+OPEN_ROUTER_API_KEY=your_key_here
 PORT=5000
 ```
 
