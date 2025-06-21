@@ -100,7 +100,7 @@ npm install
 
 3. **Create `.env` file in the `server/` folder**
 ```
-OPENAI_API_KEY=your_key_here
+OPENA_ROUTER_API_KEY=your_key_here
 PORT=5000
 ```
 
