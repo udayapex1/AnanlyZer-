@@ -57,7 +57,7 @@ AnalyZer/
 ## 🧰 Tech Stack
 
 ### 💻 Client (VS Code Extension)
-- TypeScript
+- javascript
 - VS Code Extension API
 - HTML + CSS (Webview UI)
 - Axios
