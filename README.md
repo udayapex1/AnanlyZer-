@@ -65,7 +65,7 @@ AnalyZer/
 ### 🌐 Server (Backend)
 - Node.js (ES Modules)
 - Express.js
-- OpenAI / DeepSeek APIs
+- DeepSeek APIs
 - MongoDB (optional for storing history)
 
 ---
