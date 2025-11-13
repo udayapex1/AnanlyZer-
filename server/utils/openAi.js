@@ -32,7 +32,7 @@ Use ONLY the above format. Do not include any intro or conclusion. No extra comm
                 "X-Title": "Linux Command AI Assistant" // Optional
             },
             body: JSON.stringify({
-                model: "deepseek/deepseek-r1:free",
+                model: "deepseek/deepseek-r1-0528:free",
                 messages: [
                     {
                         role: "user",
