@@ -43,6 +43,7 @@ Use ONLY the above format. Do not include any intro or conclusion. No extra comm
         });
 
         const data = await response.json();
+        console.log("data");
 
         if (data.error) {
             console.error("API error:", data.error);
